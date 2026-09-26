@@ -6,6 +6,8 @@
     <title>About Drew Sossomon | Goalkeeper</title>
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
 <!DOCTYPE html>
+    <a href="index.html" class="back-home-button">← Back to Home</a>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +15,28 @@
     <title>About Drew Sossomon | Goalkeeper Profile</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
+
+        .back-home-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #00B4D8; /* High-vis Light Energy Blue */
+    color: #0B132B;            /* Deep Dark Blue text */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+    transition: all 0.2s ease;
+}
+
+.back-home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+    filter: brightness(1.1); /* Subtle glow on hover */
+}
+
         :root {
             --dark-blue: #0B132B;       /* Ultimate Dark Blue Base */
             --navy-surface: #1C2541;    /* Clean Dark Container Fill */
