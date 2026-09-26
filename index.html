@@ -1,1 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="qLKpHjKreCqoaK8mCtu9zWwkOtCwU2MT_m9L0akpPuY" />
+    <title>Drew Sossomon | The US Wall Goalkeeper Recruitment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <meta name="description" content="Official soccer recruitment portfolio of Drew Sossomon — Class of 2028 Left-Footed Goalkeeper.">
+
+    <!-- SECURE INTERACTIVE PASSCODE GATE -->
+    <script>
+        function checkAdminAccess(event) {
+            event.preventDefault(); 
+            var passcode = prompt("Enter Admin Secure Passcode:");
+            if (passcode === "Wall2026") {
+                window.location.href = "admin.html"; 
+            } else if (passcode !== null) {
+                alert("Access Denied. Incorrect Admin Passcode.");
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --dark-blue: #0B132B;       /* Ultimate Dark Blue Base */
+            --navy-surface: #1C2541;    /* Clean Dark Container Fill */
+            --energy-blue: #00B4D8;     /* High-Vis Light Energy Blue */
+            --accent-red: #9B111E;      /* Muted Crimson */
+            --white: #FFFFFF;
+            --text-muted: #A5A5A5;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* PREMIUM NAVIGATION BAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: var(--navy-surface);
+            border-bottom: 2px solid rgba(0, 180, 216, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--energy-blue);
+        }
+
+        /* ATHLETIC HERO SECTION */
+        .hero {
+            background: radial-gradient(circle at top right, #22325E 0%, var(--dark-blue) 70%);
+            padding: 90px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-container {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1.2;
+            min-width: 300px;
+        }
+
+        .class-badge {
+            background: var(--accent-red);
+            color: var(--white);
+            padding: 6px 18px;
+            border-radius: 4px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin: 10px 0;
+            letter-spacing: -1px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--energy-blue);
+            margin: 0 0 15px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-meta {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* BADGES AND BRAND BUTTONS */
+        .badge-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 32px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-radius: 6px;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .badge-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        .ncsa-color { 
+            background-color: #004B87; 
+        }
+        .gotsport-color { 
+            background-color: transparent;
+            border-color: var(--energy-blue);
+            color: var(--energy-blue);
+        }
+        .gotsport-color:hover {
+            background-color: var(--energy-blue);
+            color: var(--dark-blue);
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 410px;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 180, 216, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* TIMELINE DISPLAY PACK */
+        .recovery-timeline {
+            max-width: 1140px;
+            margin: 40px auto;
+            background: var(--navy-surface);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .timeline-bar {
+            background: rgba(255,255,255,0.08);
+            height: 18px;
+            border-radius: 9px;
+            overflow: hidden;
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .timeline-fill {
+            background: linear-gradient(90deg, #0077B6, var(--energy-blue));
+            height: 100%;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.6);
+        }
+
+        /* RECRUITMENT GRID METRICS */
+        .scouting-grid {
+            background: var(--navy-surface); 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+            align-items: center; 
+            padding: 45px 20px; 
+            max-width: 1140px; 
+            margin: 40px auto 90px auto; 
+            border-radius: 12px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 4px solid var(--energy-blue);
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .stat-card {
+            text-align: center; 
+            flex: 1; 
+            min-width: 140px;
+        }
+
+        .stat-card-border {
+            border-left: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat-number {
+            font-family: 'Big Shoulders Display', sans-serif; 
+            font-size: 3.2rem; 
+            color: var(--energy-blue); 
+            margin: 0; 
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
+        }
+
+        .stat-desc {
+            text-transform: uppercase; 
+            font-size: 0.75rem; 
+            color: var(--text-muted); 
+            font-weight: 700; 
+            margin-top: 8px; 
+            letter-spacing: 1px;
+        }
+
+        footer {
+            background: #060B18;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 100px;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body style="--recovery-percent: 42%;">
+
+    <!-- CLEAN SOCCER NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <svg width="110" height="90" viewBox="0 0 360 300" xmlns="http://w3.org">
+              <rect width="100%" height="100%" fill="transparent"/>
+              <text x="50%" y="45%" text-anchor="middle" font-family="Montserrat, Arial" 
+                    font-size="80" font-weight="900" fill="#FFFFFF" letter-spacing="-10">
+                D<tspan fill="#00B4D8">S</tspan>
+              </text>
+              <rect x="80" y="150" width="200" height="8" fill="#00B4D8" rx="4"/>
+              <text x="50%" y="82%" text-anchor="middle" font-family="Montserrat, Arial" 
+                    font-size="22" font-weight="700" fill="#FFFFFF">
+                Drew Sossomon
+              </text>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="collegescouts.html">Recruitment Brief</a></li>
+            <li><a href="stats.html">Career Stats</a></li>
+            <li><a href="highlights.html">Highlights</a></li>
+            <li><a href="#" onclick="checkAdminAccess(event)" style="color: var(--energy-blue);">Admin</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="class-badge">Class of 2028</span>
+                <h1>ANDREW SOSSOMON</h1>
+                <p class="hero-tagline">"The U.S. Wall" | Left-Footed Goalkeeper</p>
+                <p class="hero-meta">Wake FC 09 National 1 League | 348 Saves/Season | Dogwood Virtual School</p>
+                
+                <div class="badge-container">
+                    <a href="https://ncsasports.org" target="_blank" class="badge-btn ncsa-color">⚽ View NCSA Profile</a>
+                    <a href="https://gotsport.com" target="_blank" class="badge-btn gotsport-color">📋 Club Roster (GotSport)</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="drew-soccer-player2.jpg" alt="Drew Sossomon Portfolio Profile">
+            </div>
+        </div>
+    </header>
+
+    <!-- RECOVERY TIMELINE CONTAINER -->
+    <div class="recovery-timeline">
+        <h2 style="font-family: 'Big Shoulders Display', sans-serif; font-size: 3rem; margin: 0 0 10px 0; color: var(--white); font-weight: 900; letter-spacing: 0.5px;">RECOVERY TIMELINE</h2>
+        <div class="timeline-bar">
+            <div class="timeline-fill" style="width: var(--recovery-percent);"></div>
+        </div>
+        <div class="timeline-info">
+            <p style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--energy-blue);">50% Recovered | 6 Months / 12 Months | Phase: Plyometrics</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 6px 0 0 0;">Current Target: Explosive Movement & Lateral Power</p>
+        </div>
+        <div class="timeline-labels" style="display: flex; justify-content: space-between; margin-top: 18px; font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">
+            <span>Surgery<br><span style="color:var(--white);">Nov 7, 2025</span></span>
+            <span>Now<br><span style="color:var(--white);">Sept 2026</span></span>
+            <span>Expected Return<br><span style="color:var(--white);">Late 2026</span></span>
+        </div>
+    </div>
+
+    <!-- STATS COUNTERS -->
+    <section class="scouting-grid">
+        <div class="stat-card">
+            <h3 class="stat-number">92-0-41</h3>
+            <p class="stat-desc">Career Record</p>
+        </div>
+        <div class="stat-card stat-card-border">
+            <h3 class="stat-number">862</h3>
+            <p class="stat-desc">Coach Searches</p>
+        </div>
+        <div class="stat-card stat-card-border">
+            <h3 class="stat-number">51</h3>
+            <p class="stat-desc">Coach Follows</p>
+        </div>
+        <div class="stat-card stat-card-border">
+            <h3 class="stat-number">11</h3>
+            <p class="stat-desc">Profile Views</p>
+        </div>
+        <div class="stat-card stat-card-border">
+            <h3 class="stat-number">100%</h3>
+            <p class="stat-desc">PK Save Rate</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Drew Sossomon | "The U.S. Wall" Recruiting Portfolio</p>
+    </footer>
+</body>
+</html>
 
