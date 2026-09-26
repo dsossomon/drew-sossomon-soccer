@@ -1,1 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drew Sossomon | The US Wall Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --energy-blue: #007bff;
+            --energy-accent: #60a5fa;
+            --white: #ffffff;
+            --bg: #f8fafc;
+        }
+        body { margin: 0; font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--navy); line-height: 1.6; }
+        .container { max-width: 1250px; margin: 40px auto; padding: 20px; }
+        
+        .back-btn { display: inline-block; padding: 12px 25px; background: var(--navy); color: white; text-decoration: none; border-radius: 6px; font-weight: 700; margin-bottom: 25px; border-bottom: 4px solid var(--energy-blue); transition: 0.3s; }
+        .back-btn:hover { background: var(--energy-blue); transform: translateX(-5px); }
+        
+        .header { text-align: center; border-bottom: 6px solid var(--energy-blue); padding-bottom: 25px; margin-bottom: 30px; }
+        .header h1 { font-family: 'Big Shoulders Display'; font-size: 5rem; text-transform: uppercase; margin: 0; }
+        .nickname { font-size: 1.5rem; color: var(--energy-blue); font-weight: 800; letter-spacing: 4px; margin-top: -10px; text-transform: uppercase; }
 
+        .vitals-banner { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 15px; 
+            background: var(--navy); 
+            color: white; 
+            padding: 25px; 
+            border-radius: 12px; 
+            margin-bottom: 20px;
+            border-left: 8px solid var(--energy-blue);
+        }
+        .vital-box { padding-left: 15px; }
+        .vital-box label { display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--energy-accent); font-weight: 700; margin-bottom: 5px; }
+        .vital-box span { font-size: 1.2rem; font-weight: 700; }
+
+        .bio-tag { background: #eef2ff; padding: 15px 25px; border-radius: 8px; margin-bottom: 40px; border-left: 4px solid var(--navy); font-weight: 600; }
+
+        .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 40px; }
+        .stat-card { background: white; padding: 20px; border-radius: 12px; border-bottom: 4px solid var(--energy-blue); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .stat-card h3 { margin: 0; font-size: 2.2rem; font-family: 'Big Shoulders Display'; color: var(--navy); }
+        .stat-card p { margin: 0; text-transform: uppercase; font-size: 0.75rem; font-weight: 800; color: var(--energy-blue); }
+
+        .section-label { font-family: 'Big Shoulders Display'; font-size: 2.5rem; text-transform: uppercase; margin: 45px 0 20px; color: var(--navy); border-left: 6px solid var(--energy-blue); padding-left: 20px; }
+        .table-wrapper { background: white; border-radius: 12px; overflow-x: auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+        thead { background: var(--navy); color: white; }
+        th { padding: 15px; text-align: left; font-family: 'Big Shoulders Display'; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        td { padding: 12px 15px; border-bottom: 1px solid #f1f5f9; }
+        
+        .highlight { color: var(--energy-blue); font-weight: 800; }
+        .success { color: #16a34a; font-weight: 800; }
+
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
+        .card { background: var(--navy-light); color: white; padding: 30px; border-radius: 15px; position: relative; border-top: 6px solid var(--energy-blue); }
+        .card h3 { font-family: 'Big Shoulders Display'; font-size: 2rem; margin-bottom: 5px; text-transform: uppercase; }
+        .tag { position: absolute; top: 20px; right: 20px; background: var(--energy-blue); padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← RETURN TO HOME</a>
+
+    <div class="header">
+        <h1>Drew Sossomon</h1>
+        <div class="nickname">"The US Wall"</div>
+        <p style="font-weight: 800; color: var(--navy); margin-top: 10px;">VARSITY ATHLETE | CLASS OF 2028</p>
+    </div>
+
+    <div class="vitals-banner">
+        <div class="vital-box"><label>Age / Nationality</label><span>16 / American</span></div>
+        <div class="vital-box"><label>Height</label><span>5'6" - 5'7"</span></div> 
+        <div class="vital-box"><label>Elite Club Record</label><span>92 W - 0 D - 41 L</span></div> 
+        <div class="vital-box"><label>GK Minutes</label><span>11,790 Mins</span></div>
+        <div class="vital-box"><label>Dominant Foot</label><span>Left-Footed</span></div>
+    </div>
+
+    <div class="bio-tag">
+        <strong>Athlete Profile:</strong> Competing with Cerebral Palsy & Left Hemiplegia. A resilient American goalkeeper specializing in penalty efficiency and high-volume shot-stopping. Nicknamed "The US Wall" for elite performance under pressure.
+    </div>
+
+    <div class="summary-grid">
+        <div class="stat-card"><p>Club/Tournament Wins</p><h3>92</h3></div>
+        <div class="stat-card"><p>Career Saves</p><h3 class="highlight">2,290</h3></div>
+        <div class="stat-card"><p>Total Shots Faced</p><h3 class="highlight">2,446</h3></div>
+        <div class="stat-card"><p>Career Save %</p><h3 class="success">93.6%</h3></div>
+    </div>
+
+   
+
+
+
+
+
+    <h2 class="section-label">Club & Tournament GK Analytics</h2>
+     <div class="bio-tag">
+        <strong>Athlete Profile:</strong> all matches were played in full 90 mins never subbed off or on except for the 2026 season when I tore my right knee and only played for 25 mins in the first half before my knee tore right at 25 mins</div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Season / Team</th>
+                    <th>GK Matches</th>
+                    <th>Shots Faced</th>
+                    <th>Saves</th>
+                    <th>GA</th>
+                    <th>GAA</th>
+                    <th>Save %</th>
+                    <th>Shutouts/clean sheets</th>
+                    <th>Man Of The Match</th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2027 Wake FC 09 National One League</td><td>N/A</td><td>N/A</td><td class="highlight">N/A</td><td>N/A</td><td class="success">N/A</td><td class="success">N/A</td><td>N/A</td><td>N/A</td></td></tr>
+                <tr><td>2026 Wake FC 09 NPL North academy</td><td>1</td><td>8</td><td class="highlight">8</td><td>0</td><td class="success">0.00</td><td class="success">100%</td><td>1</td><td>0</td></tr>
+                <tr><td>2025 Wake FC 09 Fulham</td><td>17</td><td>427</td><td class="highlight">348</td><td>79</td><td>4.65</td><td>81.5%</td><td>1</td><td>17</td></tr>
+                <tr><td>2023 MWC</td><td>12</td><td>120</td><td class="highlight">88</td><td>32</td><td>2.67</td><td>73.3%</td><td>0</td><td>12</td></tr>
+                <tr><td>2022 NBT</td><td>8</td><td>130</td><td class="highlight">120</td><td>10</td><td>1.25</td><td>92.3%</td><td>0</td><td>8</td></tr>
+                <tr><td>2020 NBT</td><td>13</td><td>124</td><td class="highlight">120</td><td>4</td><td>0.31</td><td>96.8%</td><td>11</td><td>0</td></tr>
+                <tr><td>2019 NBT</td><td>13</td><td>420</td><td class="highlight">400</td><td>20</td><td>1.54</td><td>95.2%</td><td>8</td><td>0</td></tr>
+                <tr><td>2017 Swat</td><td>16</td><td>210</td><td class="highlight">200</td><td>10</td><td>0.63</td><td>95.2%</td><td>15</td><td>16</td></tr>
+                <tr><td>Tournaments/Showcases</td><td>53</td><td>1,007</td><td class="highlight">1,000</td><td>7</td><td>0.13</td><td>99.5%</td><td>46</td><td>53</td></tr>
+                <tr style="background: #eef2ff; font-weight: 800;">
+                    <td>CAREER CLUB TOTALS</td>
+                    <td>133</td>
+                    <td class="highlight">2,446</td>
+                    <td class="highlight">2,290</td>
+                    <td>156</td>
+                    <td>1.17 Avg</td>
+                    <td>93.6% Avg</td>
+                    <td>82</td>
+                    <td>106</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="section-label">High School & Specialty Skills</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Data</th>
+                    <th>Scouting Insight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>High School Varsity</td><td class="highlight">13 Matches</td><td>Participated as a field player/asset; not counted in GK record.</td></tr>
+                <tr><td>Penalty Shootout Record</td><td class="success">20 - 0</td><td>Unbeatable career record in tournament shootout scenarios.</td></tr>
+                <tr><td>PK Save Efficiency</td><td class="success">60 / 60</td><td>100% Lifetime Penalty Save Rate.</td></tr>
+                <tr><td>Total Playtime</td><td>11,790 Mins</td><td>Extensive experience in high-pressure environments.</td></tr>
+            </tbody>
+        </table>
+    </div>
+<h2 class="section-label">Kicking & Distribution Analytics</h2>
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Data</th>
+                <th>Scouting Insight</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Average Hang Time</td>
+                <td class="highlight">4–8 Seconds</td>
+                <td>High hang time, allows for full team transition and defensive reset.</td>
+            </tr>
+            <tr>
+                <td>Maximum Kick Height</td>
+                <td class="highlight">Above Tree Height</td>
+                <td>High‑trajectory punts ideal for clearing pressure and creating space.</td>
+            </tr>
+            <tr>
+                <td>Typical Punt Distance</td>
+                <td class="highlight">Top of 18 → Midfield (30–35 Yards)</td>
+                <td>Consistent field‑flipping distance from standard GK position.</td>
+            </tr>
+            <tr>
+                <td>Maximum Punt Distance</td>
+                <td class="highlight">To or Past Midfield</td>
+                <td>strong leg power and advanced long‑ball capability.</td>
+            </tr>
+            <tr>
+                <td>Foot Angle at Contact</td>
+                <td class="highlight">~40° Launch Angle</td>
+                <td>Textbook technique for generating height, hang time, and carry.</td>
+            </tr>
+            <tr>
+                <td>Counter‑Attack Ability</td>
+                <td class="success">High</td>
+                <td>Creates fast breaks using varied punt types and accurate placement.</td>
+            </tr>
+            <tr>
+                <td>Long‑Ball Accuracy</td>
+                <td class="success">Consistently Hits Teammates at Midfield</td>
+                <td>Helps create advanced distribution awareness and passing precision.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+    <h2 class="section-label">My Ranking, Percentiles & How I Compare to Other Goalkeepers</h2>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>My Ranking / Stats</th>
+                <th>What It Means</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- Career Record -->
+            <tr>
+                <td>Career Record</td>
+                <td>92 Wins • 0 Draws • 42 Losses</td>
+                <td>
+                    Across all club, tournament, and showcase matches, I’ve built a strong winning record 
+                    while facing one of the highest shot volumes for a GK my age.
+                </td>
+            </tr>
+
+            <tr>
+                <td>Total Minutes Played</td>
+                <td>11,970 Minutes</td>
+                <td>
+                    This is far above average for youth keepers. Most GKs my age don’t reach this level 
+                    of real-game experience until 18–19.
+                </td>
+            </tr>
+
+            <!-- American Rankings -->
+            <tr>
+                <td>County Ranking (American)</td>
+                <td>#1</td>
+                <td>I was ranked the top goalkeeper in my county before my injury.</td>
+            </tr>
+
+            <tr>
+                <td>State Ranking (American)</td>
+                <td>Top 15</td>
+                <td>One of the highest‑rated keepers in my age group across the entire state.</td>
+            </tr>
+
+            <tr>
+                <td>National Ranking (American)</td>
+                <td>Top 25–30</td>
+                <td>My stats and performances placed me among the top youth GKs in the United States.</td>
+            </tr>
+
+            <tr>
+                <td>American GKs I've Outperformed</td>
+                <td>99.85%</td>
+                <td>
+                    Being top 25–30 out of ~25,000–35,000 American GKs my age puts me in the top 0.1–0.15%.
+                </td>
+            </tr>
+
+            <!-- Europe Comparison -->
+            <tr>
+                <td>Save % vs European GKs</td>
+                <td>93.6% (Higher)</td>
+                <td>
+                    Most European academy GKs my age average 70–82%. My save rate is above almost all of them.
+                </td>
+            </tr>
+
+            <tr>
+                <td>PK Save Rate vs Europe</td>
+                <td>100% (60/60)</td>
+                <td>
+                    European youth keepers rarely go above 40–50% in PKs. My numbers are way above the normal range.
+                </td>
+            </tr>
+
+            <tr>
+                <td>Shots Faced vs Europe</td>
+                <td>2,446 Total</td>
+                <td>
+                    Most European academy GKs face 300–600 shots. I’ve faced over 2,400, giving me 
+                    way more real-game experience than the average youth keeper.
+                </td>
+            </tr>
+
+            <tr>
+                <td>European GK Percentile</td>
+                <td>Top 1%</td>
+                <td>
+                    Based on save %, PK record, and shot volume, I outperform about 99% of GKs my age in Europe.
+                </td>
+            </tr>
+
+            <!-- Worldwide -->
+            <tr>
+                <td>Worldwide Percentile</td>
+                <td>Top 0.5%</td>
+                <td>
+                    My overall numbers place me in the top half‑percent of youth goalkeepers globally.
+                </td>
+            </tr>
+
+            <!-- Why It's Surprising -->
+            <tr>
+                <td>Why This Surprises People</td>
+                <td>High-Level Stats at 16</td>
+                <td>
+                    Most keepers my age are still learning basics. I’m already putting up adult-level numbers, 
+                    handling pressure like a veteran, and outperforming American and European academy keepers — 
+                    all while competing with CP and hemiplegia.
+                </td>
+            </tr>
+
+            <tr>
+                <td>My Elite Trait</td>
+                <td>Pressure Dominance</td>
+                <td>
+                    20–0 in shootouts and 100% PK saves. I don’t break under pressure — I get better.
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</script>
+    <h2 class="section-label">Recruitment Contacts</h2>
+    <div class="contact-grid">
+        <div class="card">
+            <span class="tag">Athlete</span>
+            <h3>Drew Sossomon</h3>
+            <p><strong>Email:</strong> dsossomon@gmail.com</p>
+            <p><strong>Role:</strong> Class of 2028 | GK</p>
+        </div>
+        <div class="card">
+            <span class="tag" style="background:#e67e22">NCSA Coach</span>
+            <h3>Dominic Gillespie</h3>
+            <p><strong>Email:</strong> coachdgillespie@ncsasports.org</p>
+            <p><strong>Org:</strong> NCSA Recruiting</p>
+
+ <h2 class="section-label">Coaches Contacts</h2>
+    <div class="contact-grid">
+        <div class="card">
+            <span class="tag">Club Coach</span>
+            <h3>Tiyi Shipalane</h3>
+            <p><strong>Email:</strong> tiyishipalane@gmail.com</p>
+            <p><strong>Role:</strong> 2024-2025 coach for 2009 Wake FC Fullham</p>
+        </div>
+              </div>
+            <div class="card">
+            <span class="tag">Club Coach</span>
+            <h3>Hernan Mogollon</h3>
+            <p><strong>Email:</strong>hernan.mogollon@wakefc.com</p>
+            <p><strong>Role:</strong> 2025-2026 coach for 2009 Wake FC NPL North Academy</p>
+        </div>
+        <div class="card">
+            <span class="tag">Varsity Coach</span>
+            <h3>Andy Puetzer</h3>
+            <p><strong>Email:</strong>apuetzer@gmail.com</p>
+            <p><strong>Role:</strong> Varsity Coach</p>
+        </div>
+    
+      </div>
+</div>
+
+<footer style="text-align: center; padding: 60px; color: #94a3b8;">
+    <p>© 2026 Drew Sossomon | Goalkeeper Career Analytics</p>
+</footer>
+
+</body>
+</html>
