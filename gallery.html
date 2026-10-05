@@ -3,334 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drew Sossomon | Photo Gallery</title>
+    <title>Drew Sossomon | Photo Vault</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root {
-            --dark-blue: #060B18;       /* Deeper Matte Finish */
-            --navy-surface: #111A30;    /* Dark Tech Container Fill */
-            --energy-blue: #00B4D8;     /* Signature Neon Glow Blue */
-            --white: #FFFFFF;
-            --text-muted: #8E9BB0;      /* Clean Premium Slate */
-        }
-
         body {
             margin: 0;
+            background-color: #060B18; /* Elite Matte Dark Base */
+            padding: 50px 24px;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-blue);
-            /* Advanced Tech Grid Pattern overlay */
-            background-image: 
-                linear-gradient(rgba(0, 180, 216, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 180, 216, 0.02) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--white);
-            line-height: 1.6;
-            min-height: 100vh;
         }
 
-        /* PREMIUM CENTERED NAV BAR */
-        nav {
+        /* HEADER INTERFACE ZONE */
+        .gallery-control-header {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+        }
+
+        /* PREMIUM DYNAMIC RETURNING BUTTON */
+        .home-btn {
+            display: inline-flex;
             align-items: center;
-            padding: 15px 40px;
-            background: rgba(17, 26, 48, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid rgba(0, 180, 216, 0.25);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav::after {
-            content: '';
-            width: 110px;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-            margin: 0;
-            padding: 0;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links a {
+            justify-content: center;
+            padding: 12px 28px;
+            font-weight: 900;
+            font-size: 0.85rem;
             text-decoration: none;
-            color: var(--white);
-            font-size: 0.9rem;
-            padding: 10px 20px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(0, 180, 216, 0.15);
             text-transform: uppercase;
             letter-spacing: 1px;
+            border-radius: 6px;
+            color: #00B4D8; /* Your Signature Energy Blue */
+            background-color: transparent;
+            border: 2px solid #00B4D8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .nav-links a:hover {
-            color: var(--white);
-            background: var(--energy-blue);
-            border-color: var(--energy-blue);
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.6);
-            transform: translateY(-2px);
+        .home-btn:hover {
+            color: #060B18;
+            background-color: #00B4D8;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.5);
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 24px;
-            box-sizing: border-box;
-        }
-
-        /* HEADER TITLE MATRIX */
-        .gallery-header {
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .giant-bg-text {
-            font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 8rem;
-            font-weight: 900;
-            line-height: 1;
-            color: transparent;
-            -webkit-text-stroke: 2px rgba(0, 180, 216, 0.15);
-            margin-bottom: -25px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            line-height: 0.95;
-            margin: 0 0 15px 0;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .highlight {
-            color: var(--energy-blue);
-            text-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0;
-        }
-
-        /* PREMIUM MASONRY GALLERY GRID */
+        /* PURE ATHLETIC MASONRY MATRIX */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            grid-auto-rows: 280px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Dynamic layout structures for varying image sizes */
-        .photo-card.tall {
-            grid-row: span 2;
-        }
-        .photo-card.wide {
-            grid-column: span 2;
-        }
-
-        .photo-card {
-            background: var(--navy-surface);
-            border: 1px solid rgba(0, 180, 216, 0.15);
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
             border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
             display: block;
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
         }
 
-        /* PREMIUM REVEAL OVERLAY */
-        .photo-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(6, 11, 24, 0.95) 0%, rgba(6, 11, 24, 0.4) 60%, transparent 100%);
-            opacity: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px;
-            box-sizing: border-box;
-            transition: opacity 0.3s ease;
+        /* Micro-interaction expansion response */
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+            border-color: #00B4D8;
+            box-shadow: 0 0 25px rgba(0, 180, 216, 0.25);
         }
 
-        .photo-caption {
-            font-weight: 900;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            color: var(--white);
-            margin: 0 0 5px 0;
-            transform: translateY(15px);
-            transition: transform 0.3s ease;
-        }
-
-        .photo-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--energy-blue);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transform: translateY(15px);
-            transition: transform 0.3s ease;
-        }
-
-        /* INTERACTIVE HOVER ACTIONS */
-        .photo-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--energy-blue);
-            box-shadow: 0 15px 35px rgba(0, 180, 216, 0.25);
-        }
-
-        .photo-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .photo-card:hover .photo-overlay {
-            opacity: 1;
-        }
-
-        .photo-card:hover .photo-caption,
-        .photo-card:hover .photo-tag {
-            transform: translateY(0);
-        }
-
-        footer {
-            background: #03060F;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 45px 20px;
-            border-top: 1px solid rgba(0, 180, 216, 0.1);
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            margin-top: 80px;
-        }
-
-        /* DEVICE SCALING MATRIX */
-        @media (max-width: 992px) {
-            nav::after { display: none; }
-            nav { flex-direction: column; gap: 15px; padding: 20px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .nav-links a { padding: 8px 14px; font-size: 0.85rem; }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                grid-auto-rows: 240px;
-                gap: 16px;
-            }
-            .photo-card.wide {
-                grid-column: span 1;
-            }
-            .giant-bg-text { font-size: 5.5rem; margin-bottom: -15px;}
-            h1 { font-size: 3.5rem; }
+        @media (max-width: 768px) {
+            body { padding: 30px 16px; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+            .home-btn { width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
 <body>
-    <!-- BRAND INTERACTIVE NAVIGATION HUB -->
-    <nav>
-        <div class="logo">
-            <svg width="110" height="90" viewBox="0 0 360 300" xmlns="http://w3.org">
-              <rect width="100%" height="100%" fill="transparent"/>
-              <text x="50%" y="45%" text-anchor="middle" font-family="Montserrat, Arial" 
-                    font-size="80" font-weight="900" fill="#FFFFFF" letter-spacing="-10">
-                D<tspan fill="#00B4D8">S</tspan>
-              </text>
-              <rect x="80" y="150" width="200" height="8" fill="#00B4D8" rx="4"/>
-              <text x="50%" y="82%" text-anchor="middle" font-family="Montserrat, Arial" 
-                    font-size="22" font-weight="700" fill="#FFFFFF">
-                Drew Sossomon
-              </text>
-            </svg>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><a href="collegescouts.html">Recruitment Brief</a></li>
-            <li><a href="stats.html">Career Stats</a></li>
-            <li><a href="highlights.html">Highlights</a></li>
-            <li><a href="gallery.html" style="color: var(--energy-blue); border-color: var(--energy-blue); box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);">Gallery</a></li>
-        </ul>
-    </nav>
-    <div class="container">
 
-        <!-- HEADLINE INTERFACE -->
-        <header class="gallery-header">
-            <div class="giant-bg-text">Photos</div>
-            <h1>Media & Action <span class="highlight">Gallery</span></h1>
-            <p class="subtitle">Matchday media, technical training stills, and athletic performance captures.</p>
-        </header>
+    <!-- CONTROL WRAPPER -->
+    <header class="gallery-control-header">
+        <a href="index.html" class="home-btn">← Back to Home</a>
+    </header>
 
-        <!-- MASONRY MATRIX -->
-        <main class="gallery-grid">
-            
-            <!-- IMAGE 1: MAIN ACTION STILL -->
-            <div class="photo-card wide">
-                <img src="20250110_115306.jpg" alt="Drew Sossomon Match Action">
-                <div class="photo-overlay">
-                    <h3 class="photo-caption">Matchday Presence</h3>
-                    <span class="photo-tag">Wake FC 09 Campaign</span>
-                </div>
-            </div>
-
-            <!-- IMAGE 2: ATHLETIC PROFILE CARD -->
-            <div class="photo-card tall">
-                <img src="20250110_115332.jpg" alt="Drew Sossomon Goalkeeper Profile">
-                <div class="photo-overlay">
-                    <h3 class="photo-caption">Student-Athlete Profile</h3>
-                    <span class="photo-tag">Youngsville Academy Academics</span>
-                </div>
-            </div>
-
-            <!-- IMAGE 3: TECHNICAL TRAINING LOG -->
-            <div class="photo-card">
-                <img src="image000001.jpg" alt="Drew Sossomon Training Log">
-                <div class="photo-overlay">
-                    <h3 class="photo-caption">Technical Distribution</h3>
-                    <span class="photo-tag">Left-Footed Distribution Drills</span>
-                </div>
-            </div>
-
-            <!-- IMAGE 4: RECRUITMENT STATS BREAKDOWN -->
-            <div class="photo-card tall">
-                <img src="image000002001.jpg" alt="Drew Sossomon Recruitment Brief">
-                <div class="photo-overlay">
-                    <h3 class="photo-caption">Scouting Analytics Summary</h3>
-                    <span class="photo-tag">The U.S. Wall Career Stats</span>
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <footer>
-        <p>© 2026 Drew Sossomon | "The U.S. Wall" Recruiting Portfolio</p>
-    </footer>
+    <!-- CONTENT MASONRY -->
+    <main class="gallery-grid">
+        <img src="20250110_115306.jpg" alt="Drew Sossomon Media Asset">
+        <img src="20250110_115332.jpg" alt="Drew Sossomon Media Asset">
+        <img src="image000001.jpg" alt="Drew Sossomon Media Asset">
+        <img src="image000002001.jpg" alt="Drew Sossomon Media Asset">
+    </main>
 
 </body>
 </html>
-
