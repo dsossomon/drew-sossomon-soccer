@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drew Sossomon | Updates & Pipeline</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #060B18;       /* Deeper Matte Finish */
+            --navy-surface: #111A30;    /* Dark Tech Container Fill */
+            --energy-blue: #00B4D8;     /* Signature Neon Glow Blue */
+            --white: #FFFFFF;
+            --text-muted: #8E9BB0;      /* Clean Premium Slate */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-blue);
+            /* Advanced Tech Grid Pattern overlay */
+            background-image: 
+                linear-gradient(rgba(0, 180, 216, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 216, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            position: relative;
+        }
+
+        /* FLOATING BACK TRACKER */
+        .back-nav {
+            position: absolute;
+            top: 0;
+            left: 24px;
+        }
+        .back-btn {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-btn:hover {
+            color: var(--energy-blue);
+            transform: translateX(-4px);
+        }
+
+        /* PREMIUM DUAL-COLUMN GRID */
+        .split-layout {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+
+        /* LEFT SIDE: HUGE STRUCTURAL ACCENT & TITLE */
+        .main-heading-zone {
+            flex: 1.1;
+            position: relative;
+        }
+
+        /* Giant goalkeeper badge asset */
+        .giant-num {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 7.5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(0, 180, 216, 0.3);
+            margin-bottom: -5px;
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px rgba(0, 180, 216, 0.1);
+        }
+
+        h1 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 0.95;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .highlight {
+            color: var(--energy-blue);
+            text-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
+        }
+
+        .desc-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 420px;
+            margin: 0;
+        }
+
+        /* RIGHT SIDE: THE SEAMLESS PIPELINE ENGINE */
+        .pipeline-zone {
+            flex: 1.2;
+            width: 100%;
+        }
+
+        .pipeline-card {
+            background: var(--navy-surface);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--energy-blue);
+            margin: 0 0 30px 0;
+            font-weight: 700;
+            border-left: 3px solid var(--energy-blue);
+            padding-left: 12px;
+        }
+
+        /* ATHLETIC LIST FLOW */
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: translateX(6px);
+            border-bottom-color: rgba(0, 180, 216, 0.4);
+        }
+
+        .item-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tech-style status indicators */
+        .status-tag {
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .list-item:hover .status-tag {
+            color: var(--energy-blue);
+            border-color: var(--energy-blue);
+            background: rgba(0, 180, 216, 0.05);
+            box-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
+        }
+
+        .and-more {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 10px;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        /* DEVICE SCALING MATRIX */
+        @media (max-width: 868px) {
+            .wrapper { padding-top: 60px; }
+            .back-nav { top: 20px; left: 24px; }
+            .split-layout { flex-direction: column; gap: 40px; }
+            h1 { font-size: 3.5rem; }
+            .giant-num { font-size: 5.5rem; }
+            .pipeline-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- TOP RETURNING SHORTCUT -->
+        <nav class="back-nav">
+            <a href="index.html" class="back-btn">← Main Dashboard</a>
+        </nav>
+
+        <main class="split-layout">
+            
+            <!-- LEFT LAYER: GK POSITION BADGE & HEADLINE -->
+            <div class="main-heading-zone">
+                <div class="giant-num">GK #1</div>
+                <h1>Pages Under <br><span class="highlight">Development</span></h1>
+                <p class="desc-text">The digital scouting infrastructure is expanding. New tracking modules are currently compiling.</p>
+            </div>
+
+            <!-- RIGHT LAYER: FUTURE PIPELINE CANVAS -->
+            <div class="pipeline-zone">
+                <div class="pipeline-card">
+                    <h2>See What's Coming</h2>
+                    
+                    <div class="item-list">
+                        <div class="list-item">
+                            <span class="item-name">Match Day Calendar</span>
+                            <span class="status-tag">Next Feed</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="item-name">Media & Press</span>
+                            <span class="status-tag">Queue</span>
+                        </div>
+                        <div class="list-item">
+                            <span class="item-name">Training Videos</span>
+                            <span class="status-tag">Processing</span>
+                        </div>
+                    </div>
+
+                    <div class="and-more">...and much more coming soon</div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
