@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drew Sossomon | College Target Tracker</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #060B18;       /* Matte Dark Base */
+            --navy-surface: #111A30;    /* Card Fill */
+            --energy-blue: #00B4D8;     /* Signature Neon Accent */
+            --white: #FFFFFF;
+            --text-muted: #8E9BB0;
+            --completed-green: #00E676; /* Glow Green for Completed Steps */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-blue);
+            background-image: 
+                linear-gradient(rgba(0, 180, 216, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 216, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* PREMIUM CENTERED NAV BAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(17, 26, 48, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(0, 180, 216, 0.25);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav::after { content: ''; width: 110px; display: block; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: var(--energy-blue);
+            border-color: var(--energy-blue);
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            box-sizing: border-box;
+        }
+
+        .page-header { margin-bottom: 50px; }
+
+        h1 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+        }
+
+        .highlight { color: var(--energy-blue); }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0;
+        }
+
+        /* COLLEGE BOX SECTION PIPELINE */
+        .college-section {
+            background: linear-gradient(185deg, var(--navy-surface) 0%, #0D1425 100%);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .college-info-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255,255,255,0.05);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .college-title-group h2 {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 2.8rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .college-tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .rank-badge {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--energy-blue);
+            background: rgba(0, 180, 216, 0.1);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            padding: 2px 16px;
+            border-radius: 6px;
+        }
+
+        /* DYNAMIC ADVANCED PIPELINE MATRIX GRID (3 COLUMNS) */
+        .checklist-matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        /* INDIVIDUAL CORE BOX TRACKER LINKED TO NCSA CONCEPTS */
+        .step-tile {
+            background: rgba(6, 11, 24, 0.4);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .step-tile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .step-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.25s ease;
+        }
+
+        /* RECRUITMENT BOX VERIFICATION INDICATORS */
+        .check-indicator {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        /* DYNAMIC LEVEL OVERRIDES: COMPLETED STATE */
+        .step-tile.completed {
+            border-color: rgba(0, 230, 118, 0.3);
+            background: rgba(0, 230, 118, 0.02);
+        }
+        .step-tile.completed .step-label {
+            color: var(--white);
+        }
+        .step-tile.completed .check-indicator {
+            background: var(--completed-green);
+            border-color: var(--completed-green);
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+        }
+        /* Checkmark icon inside completed tag */
+        .step-tile.completed .check-indicator::after {
+            content: '✓';
+            position: absolute;
+            color: #060B18;
+            font-size: 0.75rem;
+            font-weight: 900;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* DYNAMIC LEVEL OVERRIDES: ACTIVE STEP IN PROGRESS STATE */
+        .step-tile.active-progress {
+            border-color: rgba(0, 180, 216, 0.4);
+            background: rgba(0, 180, 216, 0.03);
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.05);
+        }
+        .step-tile.active-progress .step-label {
+            color: var(--energy-blue);
+        }
+        .step-tile.active-progress .check-indicator {
+            border-color: var(--energy-blue);
+            animation: pulse-border 1.5s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            from { box-shadow: 0 0 2px rgba(0, 180, 216, 0.2); }
+            to { box-shadow: 0 0 10px rgba(0, 180, 216, 0.6); }
+        }
+
+        footer {
+            background: #03060F;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 45px 20px;
+            border-top: 1px solid rgba(0, 180, 216, 0.1);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 992px) {
+            nav::after { display: none; }
+            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .checklist-matrix-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 3.2rem; }
+        }
+        @media (max-width: 650px) {
+            .checklist-matrix-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- BRAND INTERACTIVE NAVIGATION HUB -->
+    <nav>
+        <div class="logo">
+            <svg width="110" height="90" viewBox="0 0 360 300" xmlns="http://w3.org">
+              <rect width="100%" height="100%" fill="transparent"/>
+              <text x="50%" y="45%" text-anchor="middle" font-family="Montserrat, Arial" 
+                    font-size="80" font-weight="900" fill="#FFFFFF" letter-spacing="-10">
+                D<tspan fill="#00B4D8">S</tspan>
+              </text>
+              <rect x="80" y="150" width="200" height="8" fill="#00B4D8" rx="4"/>
+              <text x="50%" y="82%" text-anchor="middle" font-family="Montserrat, Arial" 
+                    font-size="22" font-weight="700" fill="#FFFFFF">
+                Drew Sossomon
+              </text>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="collegescouts.html">Recruitment Brief</a></li>
+            <li><a href="stats.html">Career Stats</a></li>
+            <li><a href="highlights.html">Highlights</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="colleges.html" style="color: var(--energy-blue);">Colleges</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- HEADLINE INTERFACE -->
+        <header class="page-header">
+            <h1>Target Programs & <span class="highlight">Recruitment Hub</span></h1>
+            <p class="subtitle">Active targets pipeline tracker. Individual campus communication logs, questionnaire progress, and evaluation milestones.</p>
+        </header>
+
+        <!-- MAIN TARGET STACK CONTAINER -->
+        <main>
+            <!-- COLLEGE 1: NC STATE -->
+            <section class="college-section">
+                <div class="college-info-banner">
+                    <div class="college-title-group">
+                        <h2>NC State University</h2>
+                        <span class="college-tagline">D1 — NC — ACC Conference</span>
+                    </div>
+                    <span class="rank-badge">Rank #1</span>
+                </div>
+
+                <!-- 12-STEP NCSA ADAPTED GRID INTERFACE -->
+                <div class="checklist-matrix-grid">
+                    
+                    <div class="step-tile completed">
+                        <span class="step-label">Research & Decide</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile completed">
+                        <span class="step-label">Complete Questionnaire</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile completed">
+                        <span class="step-label">Send Message</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile active-progress">
+                        <span class="step-label">Video Evaluation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Follow Coach on Socials</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Digital Conversation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Live Evaluation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Phone Conversation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Unofficial Visit</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Official Visit</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Scholarship Offer</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Commitment Sign</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- COLLEGE 2: DUKE -->
+            <section class="college-section">
+                <div class="college-info-banner">
+                    <div class="college-title-group">
+                        <h2>Duke University</h2>
+                        <span class="college-tagline">D1 — NC — ACC Conference</span>
+                    </div>
+                    <span class="rank-badge">Rank #2</span>
+                </div>
+
+                <!-- 12-STEP NCSA ADAPTED GRID INTERFACE -->
+                <div class="checklist-matrix-grid">
+                    
+                    <div class="step-tile completed">
+                        <span class="step-label">Research & Decide</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile active-progress">
+                        <span class="step-label">Complete Questionnaire</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Send Message</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Video Evaluation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Follow Coach on Socials</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Digital Conversation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Live Evaluation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Phone Conversation</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Unofficial Visit</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Official Visit</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Scholarship Offer</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                    <div class="step-tile">
+                        <span class="step-label">Commitment Sign</span>
+                        <div class="check-indicator"></div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Drew Sossomon | "The U.S. Wall" Recruiting Portfolio</p>
+    </footer>
+
+</body>
+</html>
