@@ -182,44 +182,56 @@
             font-weight: 400;
         }
 
-        /* BADGES AND BRAND BUTTONS */
-        .badge-container {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+       .badge-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
 
-        .badge-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 15px 32px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            border-radius: 6px;
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            transition: all 0.2s ease;
-            border: 2px solid transparent;
-        }
+.badge-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 6px;
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+}
 
-        .badge-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
-        }
+/* Premium NCSA Button Brand Glow */
+.ncsa-color { 
+    background: linear-gradient(135deg, #004B87 0%, #002F56 100%); 
+    border: 1px solid rgba(0, 75, 135, 0.4);
+}
 
-        .ncsa-color { 
-            background-color: #004B87; 
-        }
-        .gotsport-color { 
-            background-color: transparent;
-            border-color: var(--energy-blue);
-            color: var(--energy-blue);
-        }
-        .gotsport-color:hover {
-            background-color: var(--energy-blue);
-            color: var(--dark-blue);
-        }
+/* Clean Technical GotSport Contrast Border Outline */
+.gotsport-color { 
+    background-color: transparent;
+    border: 2px solid var(--energy-blue);
+    color: var(--energy-blue);
+}
+
+/* High-Vis Hover Accent Controls */
+.badge-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.ncsa-color:hover {
+    box-shadow: 0 8px 25px rgba(0, 75, 135, 0.5);
+}
+
+.gotsport-color:hover {
+    background-color: var(--energy-blue);
+    color: var(--dark-blue);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
+}
+
 
         .hero-image img {
             width: 100%;
@@ -231,77 +243,81 @@
 
         /* TIMELINE DISPLAY PACK */
         .recovery-timeline {
-            max-width: 1140px;
-            margin: 40px auto;
-            background: var(--navy-surface);
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+    max-width: 1140px;
+    margin: 50px auto;
+    background: #161F38;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
 
-        .timeline-bar {
-            background: rgba(255,255,255,0.08);
-            height: 18px;
-            border-radius: 9px;
-            overflow: hidden;
-            width: 100%;
-            margin: 20px 0;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+.timeline-bar {
+    background: rgba(0, 0, 0, 0.3);
+    height: 14px;
+    border-radius: 50px;
+    overflow: hidden;
+    width: 100%;
+    margin: 25px 0;
+    border: 1px solid rgba(255,255,255,0.05);
+}
 
-        .timeline-fill {
-            background: linear-gradient(90deg, #0077B6, var(--energy-blue));
-            height: 100%;
-            box-shadow: 0 0 15px rgba(0, 180, 216, 0.6);
-        }
+.timeline-fill {
+    background: linear-gradient(90deg, #0077B6 0%, var(--energy-blue) 100%);
+    height: 100%;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.6);
+}
+
 
         /* RECRUITMENT GRID METRICS */
         .scouting-grid {
-            background: var(--navy-surface); 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-around; 
-            align-items: center; 
-            padding: 45px 20px; 
-            max-width: 1140px; 
-            margin: 40px auto 90px auto; 
-            border-radius: 12px; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-top: 4px solid var(--energy-blue);
-            gap: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+    background: linear-gradient(145deg, #1C2541 0%, #151B30 100%); 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 40px 20px; 
+    max-width: 1140px; 
+    margin: 50px auto; 
+    border-radius: 16px; 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 4px solid var(--energy-blue);
+    gap: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
 
-        .stat-card {
-            text-align: center; 
-            flex: 1; 
-            min-width: 140px;
-        }
+.stat-card {
+    text-align: center; 
+    padding: 20px 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: background 0.3s ease;
+}
 
-        .stat-card-border {
-            border-left: 1px solid rgba(255,255,255,0.08);
-        }
+.stat-card:hover {
+    background: rgba(0, 180, 216, 0.05);
+    border-color: rgba(0, 180, 216, 0.2);
+}
 
-        .stat-number {
-            font-family: 'Big Shoulders Display', sans-serif; 
-            font-size: 3.2rem; 
-            color: var(--energy-blue); 
-            margin: 0; 
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
-        }
+.stat-number {
+    font-family: 'Big Shoulders Display', sans-serif; 
+    font-size: 3.5rem; 
+    color: var(--energy-blue); 
+    margin: 0; 
+    font-weight: 900;
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+}
 
-        .stat-desc {
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            color: var(--text-muted); 
-            font-weight: 700; 
-            margin-top: 8px; 
-            letter-spacing: 1px;
-        }
+.stat-desc {
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    color: var(--text-muted); 
+    font-weight: 700; 
+    margin: 10px 0 0 0; 
+    letter-spacing: 1.5px;
+}
+
 
         footer {
             color: var(--text-muted);
@@ -400,21 +416,37 @@
     </header>
 
     <!-- RECOVERY TIMELINE CONTAINER -->
-    <div class="recovery-timeline">
-        <h2 style="font-family: 'Big Shoulders Display', sans-serif; font-size: 3rem; margin: 0 0 10px 0; color: var(--white); font-weight: 900; letter-spacing: 0.5px;">RECOVERY TIMELINE</h2>
-        <div class="timeline-bar">
-            <div class="timeline-fill" style="width: var(--recovery-percent);"></div>
-        </div>
-        <div class="timeline-info">
-            <p style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--energy-blue);">50% Recovered | 6 Months / 12 Months | Phase: Plyometrics</p>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 6px 0 0 0;">Current Target: Explosive Movement & Lateral Power</p>
-        </div>
-        <div class="timeline-labels" style="display: flex; justify-content: space-between; margin-top: 18px; font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">
-            <span>Surgery<br><span style="color:var(--white);">Nov 7, 2025</span></span>
-            <span>Now<br><span style="color:var(--white);">Sept 2026</span></span>
-            <span>Expected Return<br><span style="color:var(--white);">Late 2026</span></span>
+   <!-- RECOVERY TIMELINE CONTAINER -->
+<div class="recovery-timeline">
+    <h2 style="font-family: 'Big Shoulders Display', sans-serif; font-size: 3rem; margin: 0 0 10px 0; color: var(--white); font-weight: 900; letter-spacing: 0.5px;">RECOVERY TIMELINE</h2>
+    
+    <div class="timeline-bar">
+        <!-- Progress bar updated to 70% to reflect field-work clearance -->
+        <div class="timeline-fill" style="width: 70%;"></div>
+    </div>
+    
+    <div class="timeline-info">
+        <p style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--energy-blue);">70% Recovered | Phase: Sport-Specific Functional Movements</p>
+        
+        <!-- MILESTONE TRACKING CHANNELS -->
+        <div style="margin-top: 12px; background: rgba(0, 180, 216, 0.08); padding: 12px 20px; border-left: 4px solid var(--energy-blue); border-radius: 0 8px 8px 0;">
+            <p style="margin: 0; font-size: 1rem; font-weight: 700; color: var(--white);">
+                Latest Progression Updates:
+            </p>
+            <ul style="margin: 6px 0 0 0; padding-left: 20px; color: var(--text-muted); font-size: 0.95rem;">
+                <li>Cleared & started <strong>straight-line sprinting</strong> on <span style="color: var(--energy-blue); font-weight: 700;">Monday 10/05/2026</span></li>
+                <li>Began <strong>ball handling & passing drills</strong> on <span style="color: var(--energy-blue); font-weight: 700;">Friday 10/09/2026</span></li>
+            </ul>
         </div>
     </div>
+    
+    <div class="timeline-labels" style="display: flex; justify-content: space-between; margin-top: 18px; font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">
+        <span>Surgery<br><span style="color:var(--white);">Nov 7, 2025</span></span>
+        <span>Current Phase<br><span style="color:var(--white);">Sprinting & Passing Drills</span></span>
+        <span>Expected Return<br><span style="color:var(--white);">Late 2026</span></span>
+    </div>
+</div>
+
 
     <!-- STATS COUNTERS -->
     <section class="scouting-grid">
@@ -423,7 +455,7 @@
             <p class="stat-desc">Career Record</p>
         </div>
         <div class="stat-card stat-card-border">
-            <h3 class="stat-number">904</h3>
+            <h3 class="stat-number">922</h3>
             <p class="stat-desc">Coach Searches</p>
         </div>
         <div class="stat-card stat-card-border">
