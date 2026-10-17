@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical & Academic Projects | Drew Sossomon</title>
+  
+  <!-- Premium Fonts via Google Fonts API -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Embedded CSS Style System Architecture -->
+  <style>
+    /* --- CSS Layout Design System Tokens --- */
+    :root {
+      --bg-dark: #0f172a;       /* Deep professional dark slate blue */
+      --bg-light: #ffffff;
+      --bg-alt: #f8fafc;         /* Crisp, clean off-white neutral background */
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;        /* Athletic high-end tracking corporate blue */
+      --primary-hover: #1d4ed8;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Montserrat', sans-serif;
+      --gap: 24px;               /* Rigid 4px spacing rule alignment standard */
+    }
+
+    /* --- Universal Setup Layout Resets --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .section-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* --- Core Typographical Elements Hierarchy --- */
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* --- Synchronized Navigation Header Frame --- */
+    .main-header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      z-index: 1000;
+    }
+
+    .main-header .logo {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--bg-dark);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* --- Section Banner Design --- */
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* --- Responsive Rigid Matrix Multi-Grid Area --- */
+    .projects-section {
+      background-color: var(--bg-light);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--gap);
+    }
+
+    /* --- Premium Isolated UI Shadow Cards --- */
+    .portfolio-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    .portfolio-card h3 {
+      font-size: 1.25rem;
+      color: var(--bg-dark);
+      margin: 12px 0 8px 0;
+    }
+
+    .portfolio-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* --- Categorized Label Badge Tags --- */
+    .tech-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .tag-blue {
+      background-color: #eff6ff;
+      color: var(--primary);
+    }
+
+    /* --- Clean Nested Vertical Link Lists System --- */
+    .project-sub-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0 0;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .project-sub-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .project-sub-list li:last-child {
+      border-bottom: none;
+    }
+
+    .project-sub-list a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+      display: block;
+    }
+
+    .project-sub-list a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    /* --- Base Branding Footer System --- */
+    .main-footer {
+      background-color: var(--bg-dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.9rem;
+      border-top: 1px solid #334155;
+      margin-top: 40px;
+    }
+
+    /* --- Fluid Fluid Mobile Breakpoints --- */
+    @media (max-width: 768px) {
+      .main-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: 2rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Synchronized Layout Navigation Header -->
+  <header class="main-header">
+    <div class="logo">D S Drew Sossomon</div>
+    <nav class="nav-links">
+      <a href="index.html">Back to Recruitment Home</a>
+    </nav>
+  </header>
+
+  <!-- Technical Portfolio Header Header -->
+  <section class="hero-section" style="padding: 60px 24px;">
+    <div class="hero-container">
+      <h1 class="hero-title" style="font-size: 2.5rem;">Technical & Academic Engineering</h1>
+      <p class="hero-subtitle">Custom application modules, front-end interface systems, and logic exercises.</p>
+    </div>
+  </section>
+
+  <!-- Main Gated Matrix Grid Area -->
+  <section class="projects-section">
+    <div class="section-container">
+      <div class="card-grid">
+        
+        <!-- CARD 1: Programming Logic -->
+        <div class="portfolio-card">
+          <div>
+            <span class="tech-tag tag-blue">JavaScript / Logic</span>
+            <h3>Software & Logic Applications</h3>
+            <p>Custom tools engineered to compute database systems, practice algorithms, and map games.</p>
+            <ul class="project-sub-list">
+              <li><a href="https://github.io">Normal Form Calculator</a></li>
+              <li><a href="https://github.io">PK Training Simulator</a></li>
+              <li><a href="https://github.io">GK Challenge Game</a></li>
+              <li><a href="https://github.io">Tic-Tac-Toe Engine</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 2: Front-End UI Architecture -->
+        <div class="portfolio-card">
+          <div>
+            <span class="tech-tag tag-blue">HTML5 / CSS3 UI</span>
+            <h3>UI/UX Engineering Systems</h3>
+            <p>Interface development layout tracks focused on user controls, layouts, and system theme tags.</p>
+            <ul class="project-sub-list">
+              <li><a href="https://github.io">Interactive Dark-Mode-Toggle</a></li>
+              <li><a href="https://github.io">Layout Formatting Practice</a></li>
+              <li><a href="https://github.io">Semantic Heading Structures</a></li>
+              <li><a href="https://github.io">Data List Practices</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD 3: Analytical Writing Samples -->
+        <div class="portfolio-card">
+          <div>
+            <span class="tech-tag tag-blue">Analysis / Composition</span>
+            <h3>Composition & Writing</h3>
+            <p>Curated analytical studies, performance review tracking files, and school writing logs.</p>
+            <ul class="project-sub-list">
+              <li><a href="https://github.io">Goalkeeper Performance Reviews</a></li>
+              <li><a href="https://github.io">NC State Literary Project</a></li>
+              <li><a href="https://github.io">Dynamic Matrix Schedule</a></li>
+              <li><a href="https://github.io">Academic Performance Portal</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2026 Drew Sossomon | Student-Athlete Academic Portfolio</p>
+  </footer>
+
+</body>
+</html>
 
